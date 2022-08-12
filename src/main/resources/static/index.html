@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryto</title>
+</head>
+<body>
+    <div class="center-it" style="margin-top: 10vh;">
+        <h1>Cryto News of the Day</h1>
+    </div>
+
+    <form method="GET" action="/">
+        <div class="center-it">
+            <span data-th-text="${n.id}"></span>
+            <span data-th-text="${n.tilte}"></span>
+
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</body>
+</html>
