@@ -1,7 +1,10 @@
 package vttp22.ssfassessment.models;
 
+import java.io.StringReader;
+
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
 
 public class News {
 
@@ -61,6 +64,12 @@ public class News {
     }
     public void setCategories(String categories) {
         this.categories = categories;
+    }
+
+    public static News create(String jsonStr) {
+        StringReader strReader = new StringReader(jsonStr);
+        JsonReader reader = Json.createReader(strReader);
+        return create(reader.readObject());
     }
 
     public static News create(JsonObject jo) {

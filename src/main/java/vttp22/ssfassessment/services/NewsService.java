@@ -28,7 +28,7 @@ import jakarta.json.JsonReader;
 @Service
 public class NewsService {
 
-    private static final String URL = "https://min-api.cryptocompare.com/data/v2/news";
+    private static final String url = "https://min-api.cryptocompare.com/data/v2/news";
 
     @Value("${API_KEY}")
     private String key;
@@ -37,11 +37,12 @@ public class NewsService {
     private NewsRepository newsRepo;
 
     public Optional<News> getNewsById(String id) {
-        Optional<String> result = newsRepo.get(id);
-        if (null == result)
+        Optional<String> results = newsRepo.get(id);
+        if (null == results)
             return Optional.empty();
+        return null;
 
-        return Optional.of(News.create(result));
+        //return Optional.of(News.create(results));
     }
 
     public List<News> getArticles(String id) {
@@ -50,8 +51,10 @@ public class NewsService {
         String payload;
 
         try { 
-                RequestEntity<Void> req = RequestEntity.build();
                 RestTemplate template = new RestTemplate();
+                RequestEntity<Void> req = RequestEntity
+                 .get(url).build();
+            
                 ResponseEntity<String> resp;
 
                 resp = template.exchange(req, String.class);
