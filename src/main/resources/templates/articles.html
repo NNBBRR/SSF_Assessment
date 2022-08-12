@@ -7,6 +7,21 @@
     <title>Articles</title>
 </head>
 <body>
-    
+    <div data-th-each="n: ${id}">
+        <table>
+            <tr>
+                <td style="width: 30%;">
+                    <img data-th-src="@{imageurl}" alt="">
+                </td>
+                <td>
+                    <strong data-th-text="${n.title}"></strong>
+                    - 
+                    <span data-th-text="${n.body}"></span>
+                    <span data-th-text="${n.tags}"></span>
+                    <span data-th-text="${n.categories}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
